@@ -9,6 +9,7 @@ COPY tunnel_server.py /app/tunnel_server.py
 COPY start.sh /app/start.sh
 
 RUN pip3 install --no-cache-dir websockets && \
+    sed -i 's/\r$//' /app/start.sh && \
     chmod +x /app/start.sh
 
 EXPOSE 3128
